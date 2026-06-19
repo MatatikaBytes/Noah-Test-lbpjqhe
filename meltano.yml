@@ -19,6 +19,9 @@ plugins:
   - name: tap-instagram-systemtoken
     variant: matatika
     pip_url: git+https://github.com/Matatika/tap-instagram.git@v0.2.0
+  - name: tap-strava
+    variant: dluftspring
+    pip_url: git+https://github.com/dluftspring/tap-strava.git
   loaders:
   - name: target-postgres
     variant: matatika

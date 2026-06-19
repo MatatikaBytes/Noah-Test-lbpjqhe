@@ -1,0 +1,72 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-strava",
+  "namespace": "tap_strava",
+  "variant": "dluftspring",
+  "label": "Strava",
+  "docs": "https://www.matatika.com/data-details/tap-strava/",
+  "repo": "https://github.com/dluftspring/tap-strava",
+  "pip_url": "git+https://github.com/dluftspring/tap-strava.git",
+  "description": "Strava is a social fitness network for athletes.\n\nStrava is a platform that allows athletes to track and analyze their workouts, connect with other athletes, and compete with friends and strangers through challenges and leaderboards. Users can record their runs, rides, and other activities using GPS-enabled devices, and then upload and share their data with the Strava community. The platform also offers training plans, personalized coaching, and insights into performance metrics such as heart rate, power, and pace. With millions of users worldwide, Strava has become a popular tool for athletes of all levels to stay motivated and engaged in their fitness pursuits.",
+  "logo_url": "/assets/logos/extractors/strava.png",
+  "capabilities": [
+    "catalog",
+    "schema-flattening",
+    "state",
+    "discover",
+    "about",
+    "stream-maps"
+  ],
+  "settings": [
+    {
+      "name": "client_id",
+      "kind": "string",
+      "label": "Client ID",
+      "description": "A unique identifier for the application connecting to the Strava API.",
+      "hidden": false,
+      "sensitive": true,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "client_secret",
+      "kind": "string",
+      "label": "Client Secret",
+      "description": "A secret key used to authenticate the application and authorize access to the API.",
+      "hidden": false,
+      "sensitive": true,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "refresh_token",
+      "kind": "string",
+      "label": "Refresh Token",
+      "description": "A token used to obtain a new access token when the original token expires.",
+      "hidden": false,
+      "sensitive": true,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "start_date",
+      "kind": "date_iso8601",
+      "label": "Start Date",
+      "description": "The date and time from which to start retrieving data from the Strava API.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "end_date",
+      "kind": "date_iso8601",
+      "label": "End date",
+      "description": "The date and time at which to stop retrieving data from the Strava API.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    }
+  ]
+}
