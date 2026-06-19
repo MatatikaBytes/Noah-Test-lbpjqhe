@@ -1,0 +1,82 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-nhl",
+  "namespace": "tap_nhl",
+  "variant": "bicks-bapa-roob",
+  "label": "NHL Stats API",
+  "docs": "https://www.matatika.com/data-details/tap-nhl/",
+  "repo": "https://github.com/bicks-bapa-roob/tap-nhl",
+  "pip_url": "git+https://github.com/bicks-bapa-roob/tap-nhl.git",
+  "description": "NHL Stats API is a tool that provides access to real-time and historical NHL statistics.\n\nNHL Stats API is a RESTful API that allows developers to access real-time and historical NHL statistics, including player and team stats, game schedules, and standings. The API provides data in JSON format and can be used to build custom applications, websites, and tools for analyzing and visualizing NHL data. With NHL Stats API, developers can create custom dashboards, fantasy hockey tools, and other applications that leverage the wealth of data available from the NHL. The API is available to developers for free, but requires registration and approval from the NHL.",
+  "logo_url": "/assets/logos/extractors/nhl.png",
+  "capabilities": [
+    "catalog",
+    "schema-flattening",
+    "state",
+    "discover",
+    "about",
+    "stream-maps"
+  ],
+  "settings": [
+    {
+      "name": "start_date",
+      "kind": "string",
+      "label": "Start Date",
+      "description": "The date from which to start retrieving data from the NHL Stats API.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "api_url",
+      "kind": "string",
+      "label": "Api Url",
+      "description": "The URL endpoint for the NHL Stats API.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "stream_maps",
+      "kind": "object",
+      "label": "Stream Maps",
+      "description": "A mapping of data streams to their corresponding endpoints in the NHL Stats API.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "stream_map_config",
+      "kind": "object",
+      "label": "Stream Map Config",
+      "description": "Configuration settings for the data streams mapped in the Stream Maps setting.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "flattening_enabled",
+      "kind": "boolean",
+      "label": "Flattening Enabled",
+      "description": "A boolean value indicating whether or not to flatten nested JSON objects in the API response.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "flattening_max_depth",
+      "kind": "integer",
+      "label": "Flattening Max Depth",
+      "description": "The maximum depth to which nested JSON objects should be flattened.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    }
+  ]
+}

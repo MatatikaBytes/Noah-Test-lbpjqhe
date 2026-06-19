@@ -25,6 +25,9 @@ plugins:
   - name: tap-gmail
     variant: meltanolabs
     pip_url: meltanolabs-tap-gmail
+  - name: tap-nhl
+    variant: bicks-bapa-roob
+    pip_url: git+https://github.com/bicks-bapa-roob/tap-nhl.git
   loaders:
   - name: target-postgres
     variant: matatika
