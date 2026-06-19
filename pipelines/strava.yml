@@ -1,0 +1,8 @@
+version: pipelines/v0.1
+label: Strava
+timeout: 0
+max_retries: 0
+data_components:
+- tap-strava
+- Warehouse
+- dbt
