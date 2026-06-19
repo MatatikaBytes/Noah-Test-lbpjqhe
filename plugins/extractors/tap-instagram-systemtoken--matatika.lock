@@ -1,0 +1,75 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-instagram-systemtoken",
+  "namespace": "tap_instagram_systemtoken",
+  "variant": "matatika",
+  "label": "Instagram (System Access Token)",
+  "docs": "https://www.matatika.com/data-details/tap-instagram/",
+  "repo": "https://github.com/Matatika/tap-instagram",
+  "pip_url": "git+https://github.com/Matatika/tap-instagram.git@v0.2.0",
+  "executable": "tap-instagram",
+  "description": "Instagram is a social media platform for sharing photos and videos.\n\nInstagram allows users to share photos and videos with their followers, as well as view and interact with content from other users. Users can also add filters and edit their photos before posting, and use hashtags to make their content more discoverable. Instagram also offers features such as Stories, Reels, and IGTV for sharing short-form video content, as well as direct messaging and shopping capabilities. The platform is popular among individuals, businesses, and influencers for building and engaging with their audiences. \n\n This tap, supports the following streams: \n- UsersStream \n- MediaStream \n- MediaCommentsStream \n- MediaInsightsStream \n- UserInsightsDailyStream \n- UserInsightsLifetimeStream \n- CustomUserInsightReports  \n\n Steps to generate a System Access Token: \n\n 1. Go to the Facebook Business page: https://business.facebook.com/ \n\n 2. Add the app to the customer account (if not already added): Navigate to Settings \u2192 Apps \u2192 Add. \n\n If the app does not have access to any accounts, add the required accounts by clicking Connect assets. \n\n 3. Assign the app to the system user: \n\n Go to Settings \u2192 System Users \u2192 Assign Assets (accessible via the three-dot menu in the top-right corner). \n\n 4. Generate the token: After the app has been assigned, click Generate Token. \n\n 5. Configure the token settings: \n\n Select the desired expiration date and choose the required permissions (e.g., instagram_basic, instagram_manage_insights, pages_show_list, pages_read_engagement). \n\n 6. Complete verification:\n\n Click Generate Token and complete the OTP verification process. Your system access token will be generated.",
+  "logo_url": "/assets/logos/extractors/instagram.png",
+  "capabilities": [
+    "catalog",
+    "schema-flattening",
+    "discover",
+    "state",
+    "about",
+    "stream-maps"
+  ],
+  "settings": [
+    {
+      "name": "ig_user_ids",
+      "kind": "array",
+      "label": "IG User IDs",
+      "description": "A unique identifier for an Instagram user account.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "access_token",
+      "kind": "string",
+      "label": "Access Token",
+      "description": "A token that grants access to the Instagram API.",
+      "placeholder": "Ex. *****************",
+      "hidden": false,
+      "sensitive": true,
+      "required": "false",
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "api_version",
+      "kind": "string",
+      "label": "API Version",
+      "description": "The version of the Instagram Graph API to use.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "start_date",
+      "kind": "date_iso8601",
+      "label": "Start Date",
+      "description": "The date from which to start retrieving data.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "custom_user_insight_reports",
+      "kind": "array",
+      "label": "Custom User Insight Reports",
+      "description": "List of custom user insight reports.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    }
+  ]
+}
