@@ -1,0 +1,112 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-instagram",
+  "namespace": "tap_instagram",
+  "variant": "matatika",
+  "label": "Instagram",
+  "docs": "https://www.matatika.com/data-details/tap-instagram/",
+  "repo": "https://github.com/Matatika/tap-instagram",
+  "pip_url": "git+https://github.com/Matatika/tap-instagram.git@v0.2.0",
+  "description": "Instagram is a social media platform for sharing photos and videos.\n\nInstagram allows users to share photos and videos with their followers, as well as view and interact with content from other users. Users can also add filters and edit their photos before posting, and use hashtags to make their content more discoverable. Instagram also offers features such as Stories, Reels, and IGTV for sharing short-form video content, as well as direct messaging and shopping capabilities. The platform is popular among individuals, businesses, and influencers for building and engaging with their audiences. \n This tap, supports the following streams: \n- UsersStream \n- MediaStream \n- MediaCommentsStream \n- MediaInsightsStream \n- UserInsightsDailyStream \n- UserInsightsLifetimeStream \n- CustomUserInsightReports",
+  "logo_url": "/assets/logos/extractors/instagram.png",
+  "capabilities": [
+    "catalog",
+    "schema-flattening",
+    "discover",
+    "state",
+    "about",
+    "stream-maps"
+  ],
+  "settings": [
+    {
+      "name": "ig_user_ids",
+      "kind": "array",
+      "label": "IG User IDs",
+      "description": "A unique identifier for an Instagram user account.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "oauth_credentials.authorization_url",
+      "kind": "string",
+      "value": "https://www.facebook.com/v23.0/dialog/oauth",
+      "label": "OAuth identity provider authorization endpoint used create and refresh tokens",
+      "description": "The endpoint used to create and refresh OAuth tokens.",
+      "hidden": true,
+      "sensitive": false,
+      "required": "true",
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "oauth_credentials.access_token",
+      "kind": "string",
+      "label": "Access Token",
+      "description": "The token used to authenticate and authorize API requests.",
+      "hidden": true,
+      "sensitive": true,
+      "required": "true",
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "access_token",
+      "aliases": [
+        "oauth_credentials.access_token"
+      ],
+      "kind": "string",
+      "label": "Access Token",
+      "description": "A token that grants access to the Instagram API.",
+      "placeholder": "Ex. *****************",
+      "hidden": true,
+      "sensitive": true,
+      "required": "false",
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "oauth_credentials.scope",
+      "kind": "string",
+      "value": "807109328909510",
+      "label": "Facebook OAuth config_id is used to link to the configuration to use",
+      "description": "The specific configuration permissions for which we are requesting user consent.",
+      "hidden": true,
+      "sensitive": false,
+      "required": "true",
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "api_version",
+      "kind": "string",
+      "label": "API Version",
+      "description": "The version of the Instagram Graph API to use.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "start_date",
+      "kind": "date_iso8601",
+      "label": "Start Date",
+      "description": "The date from which to start retrieving data.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "custom_user_insight_reports",
+      "kind": "array",
+      "label": "Custom User Insight Reports",
+      "description": "List of custom user insight reports.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    }
+  ]
+}

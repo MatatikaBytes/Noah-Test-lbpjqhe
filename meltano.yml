@@ -10,6 +10,9 @@ plugins:
   - name: tap-github
     variant: matatika
     pip_url: git+https://github.com/Matatika/tap-github.git
+  - name: tap-instagram
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/tap-instagram.git@v0.2.0
   loaders:
   - name: target-postgres
     variant: matatika
