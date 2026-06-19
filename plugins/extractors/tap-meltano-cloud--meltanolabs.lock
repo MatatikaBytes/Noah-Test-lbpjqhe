@@ -1,0 +1,57 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-meltano-cloud",
+  "namespace": "tap_meltano_cloud",
+  "variant": "meltanolabs",
+  "label": "Meltano Cloud",
+  "docs": "https://www.matatika.com/data-details/tap-meltano-cloud/",
+  "repo": "https://github.com/MeltanoLabs/tap-meltano-cloud",
+  "pip_url": "git+https://github.com/MeltanoLabs/tap-meltano-cloud.git@v0.1.6",
+  "description": "Meltano Cloud is a SaaS data platform that lets teams build, run, and monitor data pipelines\nentirely in the cloud. It provides managed infrastructure for running Meltano projects,\nwith workspaces that organise pipelines, data components, data stores, datasets, channels,\nand job history all in one place.\n\nThe tap-meltano-cloud extractor connects to the Meltano Cloud API to extract metadata about your\nMeltano Cloud organisation \u2014 giving you full visibility of your pipeline configurations, execution\nhistory, and data assets in your data warehouse.\n\n### Prerequisites\n\nObtain an API token from the Meltano Cloud UI and set it as the **Auth Token** setting.\n\n### Available Streams\n\n#### workspaces\n\nAll workspaces accessible to the authenticated user. All other streams are scoped to each\nworkspace and synced as children.\n\n| Field | Description |\n|---|---|\n| id | Unique identifier of the workspace |\n| name | Display name of the workspace |\n| alias | URL-friendly alias for the workspace |\n| status | Workspace status |\n| managed | Whether the workspace is managed by Meltano Cloud |\n| defaultEnvironment | Default Meltano environment name |\n| pipelinesImage | Docker image used to run pipelines |\n| repositoryUrl | Git repository URL linked to the workspace |\n| repositoryBranch | Git branch used for the workspace |\n| repositoryDirectory | Subdirectory within the repository |\n| githubInstallationId | GitHub App installation ID |\n| domains | Allowed email domains for the workspace |\n| imageUrl | Workspace logo/image URL |\n| appProperties | Additional application-level properties object |\n| created | Timestamp when the workspace was created |\n| lastModified | Timestamp when the workspace was last modified |\n\n#### pipelines\n\nAll pipelines within each workspace.\n\n| Field | Description |\n|---|---|\n| id | Unique identifier of the pipeline |\n| workspaceId | ID of the parent workspace |\n| name | Internal pipeline name |\n| label | Human-readable display label |\n| status | Pipeline status (e.g. ACTIVE, INACTIVE) |\n| schedule | Cron or interval schedule expression |\n| scheduleFromInterval | Whether the schedule was derived from an interval |\n| timeout | Execution timeout in seconds |\n| maxRetries | Maximum number of retry attempts on failure |\n| script | Pipeline script content |\n| dataComponents | List of data component references used by the pipeline |\n| actions | Available pipeline actions |\n| triggeredBy | Trigger source for the pipeline |\n| repositoryPath | Path to the pipeline definition in the workspace repository |\n| created | Timestamp when the pipeline was created |\n| lastModified | Timestamp when the pipeline was last modified |\n\n#### pipeline_jobs\n\nAll jobs associated with each pipeline.\n\n| Field | Description |\n|---|---|\n| id | Unique identifier of the job |\n| workspaceId | ID of the parent workspace |\n| pipelineId | ID of the parent pipeline |\n| type | Job type (e.g. PIPELINE_RUN) |\n| status | Job status (e.g. STOPPED, ERROR, COMPLETE) |\n| triggeredBy | What or who triggered the job |\n| attempt | Current attempt number |\n| maxAttempts | Maximum number of execution attempts allowed |\n| exitCode | Process exit code |\n| commitId | Git commit ID at time of execution |\n| startTime | Timestamp when the job started |\n| endTime | Timestamp when the job ended |\n| created | Timestamp when the job record was created |\n\n#### jobs\n\nExecution history for all pipelines within each workspace. Each record represents a single\npipeline run attempt.\n\n| Field | Description |\n|---|---|\n| id | Unique identifier of the job |\n| workspaceId | ID of the parent workspace |\n| type | Job type (e.g. WORKSPACE_DEPLOY) |\n| status | Job status (e.g. STOPPED, ERROR, COMPLETE) |\n| triggeredBy | What or who triggered the job |\n| attempt | Current attempt number |\n| maxAttempts | Maximum number of execution attempts allowed |\n| exitCode | Process exit code |\n| commitId | Git commit ID at time of execution |\n| startTime | Timestamp when the job started |\n| endTime | Timestamp when the job ended |\n| created | Timestamp when the job record was created |\n\n#### pipeline_metrics\n\nAggregated metric values per pipeline per job run within each workspace.\n\n| Field | Description |\n|---|---|\n| workspaceId | ID of the parent workspace |\n| pipelineId | ID of the pipeline \u2014 primary key |\n| job_created_at | Timestamp when the job was created \u2014 primary key |\n| value | Metric value |\n\n#### datacomponents\n\nData component configurations (extractors and mappers) within each workspace.\n\n| Field | Description |\n|---|---|\n| id | Unique identifier of the data component |\n| workspaceId | ID of the parent workspace |\n| name | Data component name |\n| dataPlugin | Name of the underlying Singer plugin |\n| dataPluginType | Plugin type (e.g. extractor, mapper) |\n| dataPluginLogoUrl | Logo URL for the plugin |\n| commands | Available plugin commands |\n| streams | Singer streams exposed by this component |\n| draft | Whether this is a draft (unsaved) configuration |\n| managed | Whether this component is managed by Meltano Cloud |\n| fromDataPlugin | Whether this was created from a plugin template |\n| repositoryPath | Path to the component definition in the workspace repository |\n| created | Timestamp when the component was created |\n| lastModified | Timestamp when the component was last modified |\n\n#### datastores\n\nData store configurations (loaders) within each workspace.\n\n| Field | Description |\n|---|---|\n| id | Unique identifier of the data store |\n| workspaceId | ID of the parent workspace |\n| name | Data store name |\n| dataPlugin | Name of the underlying Singer plugin |\n| dataPluginType | Plugin type (e.g. loader) |\n| dataPluginLogoUrl | Logo URL for the plugin |\n| logoUrl | Logo URL for this data store instance |\n| commands | Available plugin commands |\n| streams | Singer streams consumed by this store |\n| workspace | Parent workspace reference object |\n| draft | Whether this is a draft (unsaved) configuration |\n| managed | Whether this store is managed by Meltano Cloud |\n| fromDataPlugin | Whether this was created from a plugin template |\n| repositoryPath | Path to the store definition in the workspace repository |\n| created | Timestamp when the store was created |\n| lastModified | Timestamp when the store was last modified |\n\n#### datasets\n\nPublished datasets within each workspace.\n\n| Field | Description |\n|---|---|\n| id | Unique identifier of the dataset |\n| workspaceId | ID of the parent workspace |\n| title | Display title of the dataset |\n| alias | URL-friendly alias |\n| description | Dataset description text |\n| descriptionContentType | MIME type of the description (e.g. text/markdown) |\n| published | Whether the dataset is publicly published |\n| source | Data source identifier |\n| query | SQL or query definition |\n| rawData | Raw data payload |\n| visualisation | Visualisation configuration object |\n| metadata | Additional metadata object |\n| questions | Associated question prompts |\n| likeCount | Number of likes |\n| likedByProfiles | Profiles that have liked this dataset |\n| commentCount | Number of comments |\n| viewCount | Number of views |\n| score | Relevance or quality score |\n| repositoryPath | Path to the dataset definition in the workspace repository |\n| created | Timestamp when the dataset was created |\n\n#### channels\n\nChannels (curated dataset collections) within each workspace.\n\n| Field | Description |\n|---|---|\n| id | Unique identifier of the channel |\n| workspaceId | ID of the parent workspace |\n| name | Channel name |\n| description | Channel description |\n| scope | Visibility scope (e.g. PUBLIC, PRIVATE) |\n| type | Channel type |\n| creator | Profile of the user who created the channel |\n| picture | Channel picture URL |\n| datasetCount | Number of datasets in the channel |\n| containsDataset | Whether a queried dataset is present in the channel |\n| repositoryPath | Path to the channel definition in the workspace repository |\n| created | Timestamp when the channel was created |\n| lastModified | Timestamp when the channel was last modified |\n",
+  "logo_url": "/assets/logos/extractors/meltano.png",
+  "capabilities": [
+    "structured-logging",
+    "catalog",
+    "discover",
+    "state",
+    "about",
+    "stream-maps"
+  ],
+  "settings": [
+    {
+      "name": "auth_token",
+      "kind": "string",
+      "value": "$AUTH_TOKEN",
+      "label": "Auth Token",
+      "description": "Temporary Auth Token from the Meltano Cloud UI (leave blank to use the pipeline default AUTH_TOKEN when deployed in Meltano Cloud).",
+      "hidden": false,
+      "sensitive": true,
+      "required": "false",
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "workspace_ids",
+      "kind": "array",
+      "value": "[\"$WORKSPACE_ID\"]",
+      "label": "Workspace IDs",
+      "description": "Optional list of workspace IDs to sync. When set, only the specified workspaces are fetched directly by ID, bypassing the workspaces list endpoint. When omitted, all workspaces accessible to the authenticated user are discovered and synced automatically.",
+      "hidden": false,
+      "sensitive": false,
+      "required": "false",
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "api_url",
+      "kind": "string",
+      "value": "$ENDPOINT_URL",
+      "label": "API URL",
+      "description": "Base URL of the Meltano Cloud API. Override only if connecting to a self-hosted instance.",
+      "hidden": true,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    }
+  ]
+}

@@ -13,6 +13,9 @@ plugins:
   - name: tap-instagram
     variant: matatika
     pip_url: git+https://github.com/Matatika/tap-instagram.git@v0.2.0
+  - name: tap-meltano-cloud
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-meltano-cloud.git@v0.1.6
   loaders:
   - name: target-postgres
     variant: matatika
