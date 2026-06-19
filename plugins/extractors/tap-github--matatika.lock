@@ -1,0 +1,42 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-github",
+  "namespace": "tap_github",
+  "variant": "matatika",
+  "label": "GitHub",
+  "docs": "https://www.matatika.com/docs/instant-insights/tap-github/",
+  "repo": "https://github.com/Matatika/tap-github",
+  "pip_url": "git+https://github.com/Matatika/tap-github.git",
+  "description": "GitHub is a web-based platform for version control and collaboration that allows developers to store and manage their code repositories.\n\nGitHub provides a centralized location for developers to store and manage their code repositories, allowing them to track changes, collaborate with others, and manage multiple versions of their code. It offers a range of features, including issue tracking, pull requests, code review, and project management tools, making it a popular choice for open-source projects and software development teams. With GitHub, developers can easily share their code with others, contribute to existing projects, and build new applications from scratch. It also provides a platform for developers to showcase their work and build their professional profiles, making it a valuable resource for job seekers and employers alike.\n### Prerequisites\nTo obtain a Personal Access Token on GitHub, follow these steps:\n\n1. Log in to your GitHub account.\n2. Click on your profile picture in the top-right corner of the screen and select \"Settings\".\n3. In the left sidebar, click on \"Developer settings\".\n4. Click on \"Personal access tokens\".\n5. Click on \"Generate new token\".\n6. Give your token a name and select the scopes you need.\n7. Click on \"Generate token\".\n8. Copy the token to a safe place, as you won't be able to see it again.\n\nTo obtain repositories on GitHub, follow these steps:\n\n1. Log in to your GitHub account.\n2. Click on the \"+\" sign in the top-right corner of the screen and select \"New repository\".\n3. Give your repository a name and select the settings you need.\n4. Click on \"Create repository\".",
+  "logo_url": "/assets/images/datasource/tap-github.png",
+  "capabilities": [
+    "catalog",
+    "state",
+    "discover",
+    "about"
+  ],
+  "settings": [
+    {
+      "name": "auth_token",
+      "kind": "string",
+      "label": "Personal Access Token",
+      "description": "A unique code that allows access to your GitHub account and repositories.",
+      "hidden": false,
+      "sensitive": true,
+      "required": "true",
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "repositories",
+      "kind": "array",
+      "label": "Repositories",
+      "description": "A collection of files and folders that are stored on GitHub and can be accessed and modified by users with the appropriate permissions.",
+      "hidden": false,
+      "sensitive": false,
+      "required": "true",
+      "configured": false,
+      "protected": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "plugin_type": "transforms",
+  "name": "dbt-github",
+  "namespace": "tap_github",
+  "variant": "matatika",
+  "label": "dbt-github",
+  "repo": "https://github.com/Matatika/dbt-tap-github",
+  "pip_url": "https://github.com/Matatika/dbt-tap-github@v0.2.0",
+  "description": " GitHub is a web-based platform for version control and collaboration that allows developers to store and manage their code repositories.\n\nMore information about our out of the box insights: https://www.matatika.com/docs/instant-insights/tap-github/insights ",
+  "requires": {
+    "transformers": [
+      {
+        "name": "dbt",
+        "variant": "dbt-labs"
+      }
+    ],
+    "extractors": [
+      {
+        "name": "tap-github",
+        "variant": "matatika"
+      }
+    ]
+  },
+  "vars": {
+    "schema": "{{ env_var('DBT_SOURCE_SCHEMA') }}"
+  }
+}

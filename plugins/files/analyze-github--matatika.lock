@@ -1,0 +1,22 @@
+{
+  "plugin_type": "files",
+  "name": "analyze-github",
+  "namespace": "tap_github",
+  "variant": "matatika",
+  "label": "Github Insights",
+  "repo": "https://github.com/Matatika/analyze-github",
+  "pip_url": "git+https://github.com/Matatika/analyze-github@v0.3.0",
+  "description": "Instant insights on commits, issues and PRs from Github.",
+  "logo_url": "/assets/images/datasource/tap-github.png",
+  "requires": {
+    "transforms": [
+      {
+        "name": "dbt-github",
+        "variant": "matatika"
+      }
+    ]
+  },
+  "update": {
+    "*.yml": "true"
+  }
+}
