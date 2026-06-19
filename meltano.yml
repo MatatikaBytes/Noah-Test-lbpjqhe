@@ -22,6 +22,9 @@ plugins:
   - name: tap-strava
     variant: dluftspring
     pip_url: git+https://github.com/dluftspring/tap-strava.git
+  - name: tap-gmail
+    variant: meltanolabs
+    pip_url: meltanolabs-tap-gmail
   loaders:
   - name: target-postgres
     variant: matatika
