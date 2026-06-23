@@ -1,0 +1,2 @@
+singer-sdk<2,>=0.36
+requests<3,>=2.28

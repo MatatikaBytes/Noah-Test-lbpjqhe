@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tap-dogapi"
+version = "0.1.0"
+description = "Singer tap for DogAPI (dogapi.dog)"
+requires-python = ">=3.8"
+dependencies = [
+    "singer-sdk>=0.36,<2",
+    "requests>=2.28,<3",
+]
+
+[project.scripts]
+tap-dogapi = "tap_dogapi.tap:TapDogAPI.cli"
+
+[tool.setuptools]
+packages = ["tap_dogapi"]

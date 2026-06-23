@@ -1,0 +1,9 @@
+pyproject.toml
+tap_dogapi/__init__.py
+tap_dogapi/tap.py
+tap_dogapi.egg-info/PKG-INFO
+tap_dogapi.egg-info/SOURCES.txt
+tap_dogapi.egg-info/dependency_links.txt
+tap_dogapi.egg-info/entry_points.txt
+tap_dogapi.egg-info/requires.txt
+tap_dogapi.egg-info/top_level.txt

@@ -16,7 +16,16 @@ plugins:
   - name: tap-meltano-cloud
     variant: meltanolabs
     pip_url: git+https://github.com/MeltanoLabs/tap-meltano-cloud.git@v0.1.6
+  - name: tap-dogapi
+    namespace: tap_dogapi
+    pip_url: -e ./plugins/extractors/tap-dogapi
+    executable: tap-dogapi
   loaders:
+  - name: target-sqlite
+    variant: meltanolabs
+    pip_url: target-sqlite
+    config:
+      path: C:\Users\Meltano\Documents\dogAPItest1.db
   - name: target-postgres
     variant: matatika
     pip_url: git+https://github.com/Matatika/pipelinewise-target-postgres.git@v0.2.1

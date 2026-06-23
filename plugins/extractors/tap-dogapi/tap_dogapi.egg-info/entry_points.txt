@@ -1,0 +1,2 @@
+[console_scripts]
+tap-dogapi = tap_dogapi.tap:TapDogAPI.cli
