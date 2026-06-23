@@ -1,0 +1,31 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-govuk-weekly-road-fuel-prices",
+  "namespace": "tap_govuk_weekly_road_fuel_prices",
+  "variant": "matatika",
+  "label": "Weekly road fuel prices",
+  "docs": "https://www.matatika.com/data-details/tap-govuk-weekly-road-fuel-prices/",
+  "repo": "https://github.com/Matatika/tap-spreadsheets-anywhere",
+  "pip_url": "git+https://github.com/Matatika/tap-spreadsheets-anywhere.git@v0.5.3",
+  "executable": "tap-spreadsheets-anywhere",
+  "description": "Road fuel price statistics providing average UK retail 'pump' prices on a weekly basis.\n\n## Learn more\n\n[Weekly road fuel prices](https://www.gov.uk/government/statistics/weekly-road-fuel-prices)",
+  "logo_url": "https://www.gov.uk/assets/government-frontend/national-statistics-21661e9982d6f605259af3673ea887a18ecd817763b1a62b154d3551a1f1d1b2.png",
+  "capabilities": [
+    "catalog",
+    "discover",
+    "state"
+  ],
+  "settings": [
+    {
+      "name": "tables",
+      "kind": "array",
+      "value": "[\n  {\n    \"path\":\"https://assets.publishing.service.gov.uk/media/66797f66921ddc8344a00f3e/\",\n    \"name\":\"weekly_fuel_prices\",\n    \"pattern\":\"weekly_fuel_prices_240624.csv\",\n    \"field_names\":[\"Date\",\"ULSP_per_litre\",\"ULSD_per_litre\",\"ULSP_duty\",\"ULSD_duty\",\"ULSP_vat_pc\",\"ULSD_vat_pc\"],\n    \"start_date\":\"2018-01-01T00:00:00Z\",\n    \"skip_initial\": 1,\n    \"key_properties\":[\"Date\"],\n    \"format\":\"csv\"\n  },\n  {\n    \"path\":\"https://assets.publishing.service.gov.uk/media/65a5612e867cd8000d5ae8f0/\",\n    \"name\":\"weekly_fuel_prices_2003_to_2017\",\n    \"pattern\":\"weekly_fuel_prices_2003_to_2017.csv\",\n    \"field_names\":[\"Date\",\"ULSP_per_litre\",\"ULSD_per_litre\",\"ULSP_duty\",\"ULSD_duty\",\"ULSP_vat_pc\",\"ULSD_vat_pc\"],\n    \"start_date\":\"2003-09-06T00:00:00Z\",\n    \"skip_initial\": 1,\n    \"key_properties\":[\"Date\"],\n    \"format\":\"csv\"\n  }\n]",
+      "label": "Tables",
+      "description": "A collection of related data organized in rows and columns.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-gmail",
+  "namespace": "tap_gmail",
+  "variant": "meltanolabs",
+  "label": "GMail",
+  "docs": "https://www.matatika.com/data-details/tap-gmail/",
+  "repo": "https://github.com/MeltanoLabs/tap-gmail",
+  "pip_url": "meltanolabs-tap-gmail",
+  "description": "Email service provided by Google",
+  "logo_url": "/assets/logos/extractors/gmail.png",
+  "capabilities": [
+    "catalog",
+    "schema-flattening",
+    "state",
+    "discover",
+    "about",
+    "stream-maps"
+  ],
+  "settings": [
+    {
+      "name": "oauth_credentials.client_id",
+      "kind": "string",
+      "label": "Oauth Credentials Client Id",
+      "description": "A unique identifier for the client application requesting access to the user's Gmail account.",
+      "hidden": false,
+      "sensitive": true,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "oauth_credentials.client_secret",
+      "kind": "string",
+      "label": "Oauth Credentials Client Secret",
+      "description": "A secret key used in conjunction with the client ID to authenticate the client application.",
+      "hidden": false,
+      "sensitive": true,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "oauth_credentials.refresh_token",
+      "kind": "string",
+      "label": "Oauth Credentials Refresh Token",
+      "description": "A token used to obtain a new access token when the original access token expires.",
+      "hidden": false,
+      "sensitive": true,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "user_id",
+      "kind": "string",
+      "label": "User Id",
+      "description": "The unique identifier for the user's Gmail account.",
+      "hidden": false,
+      "sensitive": true,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "messages.include_spam_trash",
+      "kind": "boolean",
+      "label": "Messages Include Spam Trash",
+      "description": "A boolean value indicating whether to include messages from the spam and trash folders in the stream.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "stream_maps",
+      "kind": "object",
+      "label": "Stream Maps",
+      "description": "A list of mappings between Gmail labels and destination streams.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "stream_map_config",
+      "kind": "object",
+      "label": "Stream Map Config",
+      "description": "Configuration settings for the stream maps, such as the maximum number of messages to retrieve per request.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "flattening_enabled",
+      "kind": "boolean",
+      "label": "Flattening Enabled",
+      "description": "A boolean value indicating whether to flatten nested message parts into a single message.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    },
+    {
+      "name": "flattening_max_depth",
+      "kind": "integer",
+      "label": "Flattening Max Depth",
+      "description": "The maximum depth to which nested message parts will be flattened.",
+      "hidden": false,
+      "sensitive": false,
+      "configured": false,
+      "protected": false
+    }
+  ]
+}

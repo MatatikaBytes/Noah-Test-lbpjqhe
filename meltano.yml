@@ -20,6 +20,21 @@ plugins:
     namespace: tap_dogapi
     pip_url: -e ./plugins/extractors/tap-dogapi
     executable: tap-dogapi
+  - name: tap-instagram-systemtoken
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/tap-instagram.git@v0.2.0
+  - name: tap-strava
+    variant: dluftspring
+    pip_url: git+https://github.com/dluftspring/tap-strava.git
+  - name: tap-gmail
+    variant: meltanolabs
+    pip_url: meltanolabs-tap-gmail
+  - name: tap-nhl
+    variant: bicks-bapa-roob
+    pip_url: git+https://github.com/bicks-bapa-roob/tap-nhl.git
+  - name: tap-govuk-weekly-road-fuel-prices
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/tap-spreadsheets-anywhere.git@v0.5.3
   loaders:
   - name: target-sqlite
     variant: meltanolabs

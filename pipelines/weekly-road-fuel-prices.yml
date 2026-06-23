@@ -1,7 +1,8 @@
 version: pipelines/v0.1
-label: Meltano Cloud
+label: Weekly road fuel prices
 timeout: 0
 max_retries: 0
 data_components:
-- tap-meltano-cloud
+- tap-govuk-weekly-road-fuel-prices
 - Warehouse
+- dbt

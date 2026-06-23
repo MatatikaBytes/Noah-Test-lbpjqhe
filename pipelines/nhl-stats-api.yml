@@ -1,7 +1,7 @@
 version: pipelines/v0.1
-label: Meltano Cloud
+label: NHL Stats API
 timeout: 0
 max_retries: 0
 data_components:
-- tap-meltano-cloud
+- tap-nhl
 - Warehouse
