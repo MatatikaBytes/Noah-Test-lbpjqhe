@@ -4,3 +4,6 @@ timeout: 0
 max_retries: 0
 data_components:
 - tap-dogapi
+- Warehouse
+- dbt
+- dbt-artifacts
